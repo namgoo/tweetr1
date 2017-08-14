@@ -25,3 +25,22 @@
   padding: 0;
 }
 
+#nav-bar button{
+   border-radius: 7px;
+   border: 2px black solid;
+   background-color: #FFFFFF;
+   float:right;
+   opacity:0.8;
+   display: inline;
+   height: 70px;
+   width: 150px;
+   margin-top: 5px;
+   font-size: x-large;
+   color:#00a087
+ }
+
+
+ #nav-bar button:hover{
+   opacity:1;
+   color:black;
+}

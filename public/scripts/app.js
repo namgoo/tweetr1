@@ -92,7 +92,7 @@ function renderTweets(tweets) {
   for (tweet of tweets) {  // loops through tweets
     console.log(tweet)
     var $tweet = createTweetElement(tweet)// calls createTweetElement for each tweet
-    $('#tweets-container').append($tweet) // takes return value and appends it to the tweets container
+    $('#tweets-container').prepend($tweet) // takes return value and appends it to the tweets container
   }
 }
 
@@ -118,6 +118,11 @@ function createTweetElement(tweetData) {
 
       <footer class="footer">
         <div class = "time"> <h4> ${tweetData.created_at} </h4> </div>
+        <div class="icons">
+                <i class="fa fa-flag"></i>
+                <i class="fa fa-retweet"></i>
+                <i class="fa fa-heart"></i>
+              </div>
       </footer>
 
     </article>
@@ -163,6 +168,10 @@ $(".form-submit").on("submit", function(event) {
   };
 })
 
+$("button").on("click", function() {
+  $(".new-tweet").fadeToggle(750);
+  $("textarea").focus();
+})
 
 
 

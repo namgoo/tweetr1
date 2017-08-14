@@ -87,7 +87,9 @@
 
 
 
+
 /*-----------------------------------------------------------------*/
+
 
 
 
@@ -119,26 +121,25 @@
   margin-left: auto;
 }
 
-.body {
+#tweets-container .body {
   padding: 40px 0;
   box-sizing: border-box;
 }
 
-#tweets-container footer {
- /* display: flex;*/
-}
+/*#tweets-container footer {
+  display: flex;
+}*/
 
 #tweets-container footer .time {
+  display: flex;
   border-top: 1px solid black;
 }
 
-#tweets-container footer .bottomImg {
-  width: 10px;
-  height: 10px;
-  padding: .5px;
-}
-
-#tweets-container footer .firstImg {
+#tweets-container footer .icons {
+  display: flex;
+ /* padding: 1px;*/
   margin-left: auto;
 }
+
+
 
