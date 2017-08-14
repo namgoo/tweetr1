@@ -70,6 +70,25 @@ var tweetData =
     "created_at": 1461116232227
   }
 
+
+
+$(document).ready(function() {
+
+
+function loadTweets(){        //gets our tweets from the /tweets page.
+    $.ajax({
+       url: '/tweets',
+       method: 'GET',
+       success: renderTweets
+     })
+}
+
+  loadTweets();
+
+
+
+
+
 function renderTweets(tweets) {
   for (tweet of tweets) {  // loops through tweets
     console.log(tweet)
@@ -79,6 +98,8 @@ function renderTweets(tweets) {
 }
 
 
+// $(`<div>${textFromUser}</div>`);
+// $("<div>").text(textFromUser)
 
 
 
@@ -108,7 +129,30 @@ function createTweetElement(tweetData) {
 }
 
 
-renderTweets(data)
+// renderTweets(data)
+
+
+$(".form-submit").on("submit", function(event) {
+  event.preventDefault();
+  console.log('this.serialize', $(this).serialize()) //  Serialize => making a 'query string'
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function(morePostHTML) {
+        console.log('Success: ', morePostHTML);
+      }
+    })
+  });
+
+
+});
+
+
+
+
+
+
 
 //// var $tweet = createTweetElement(tweetData);
 
