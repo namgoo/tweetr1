@@ -88,7 +88,6 @@ function loadTweets(){        //gets our tweets from the /tweets page.
 
 
 
-
 function renderTweets(tweets) {
   for (tweet of tweets) {  // loops through tweets
     console.log(tweet)
@@ -132,18 +131,41 @@ function createTweetElement(tweetData) {
 // renderTweets(data)
 
 
+function checkData(data){             //helper function
+
+   console.log("data.length:", data.length);
+
+   if (data.length > 140) {
+     alert("Your tweet exceeded the 140 character limit");
+     return false;
+   } else if ((data === "")|| (data === null)) {
+       alert ("Please enter text");
+     return false;
+   } else {
+     return true;
+   }
+}
+
+
 $(".form-submit").on("submit", function(event) {
   event.preventDefault();
-  console.log('this.serialize', $(this).serialize()) //  Serialize => making a 'query string'
+  let data = $(this).find("textarea").val();
+  if (checkData(data)) {
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: $(this).serialize(),
-      success: function(morePostHTML) {
-        console.log('Success: ', morePostHTML);
+      success: () => {
+        loadTweets();
+        $(this).find("textarea").val()
       }
     })
-  });
+  };
+})
+
+
+
+
 
 
 });
