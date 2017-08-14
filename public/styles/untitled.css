@@ -1,0 +1,49 @@
+.tweet {
+  margin-top: 10px;
+  border: solid 1px black;
+  border-radius: 6px;
+}
+
+.tweet header {
+  display: flex;
+  background-color: #eef;
+  padding: 1em;
+  line-height: .5;
+  margin: 0;
+}
+
+.tweet header img {
+  float: left;
+  top: 0px;
+  left: 2px;
+  width: 50px;
+  height: 50px;
+}
+
+.tweet .handle {
+  background-color: #eee;
+  margin-left: auto;
+}
+
+.body {
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.tweet footer {
+ /* display: flex;*/
+}
+
+.tweet footer .time {
+  border-top: 1px solid black;
+}
+
+.tweet footer .bottomImg {
+  width: 10px;
+  height: 10px;
+  padding: .5px;
+}
+
+.tweet footer .firstImg {
+  margin-left: auto;
+}

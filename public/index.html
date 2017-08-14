@@ -25,6 +25,9 @@
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+    <!-- Character Counter -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
@@ -46,12 +49,61 @@
         <form method = "POST" action = "/tweets" >
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
-          <span class="counter">140</span>
+          <span class="counter"> 140 </span>
         </form>
+    </section>
 
-     </main>
 
-</section>
+     <article class="tweet">
+        <header>
+          <img src="images/smileyface.jpg">
+          <div class = "name"> <h2> Nam </h2> </div>
+          <div class = "handle"> <h3> @Nam </h3> </div>
+        </header>
+
+        <div class="body">
+         First Body
+        </div>
+
+        <footer class="footer">
+          <div class = "time"> <h4> 10 days ago </h4> </div>
+          <img class = "bottomImg firstImg" src = "/images/flag.jpg" >
+          <img class = "bottomImg" src = "/images/retweet.jpg" >
+          <img class = "bottomImg" src = "/images/love.jpg" >
+
+        </footer>
+
+     </article>
+
+
+    <section id="tweets-container" >
+     <!--  <article class="tweets-container">
+        <header class="tweets-header">
+          <img class="avatars" src="/images/bird.png">
+          <div class = "name"> <h2>  </h2> </div>
+          <div class = "handle"> <h3>  </h3> </div>
+        </header>
+
+        <div class="body">
+
+        </div>
+
+        <footer class="footer">
+          <div class = "time"> <h4>  </h4> </div>
+
+        </footer>
+
+      </article> -->
+
+    </section>
+
+
+    </section>
+
+
+  </main>
+
+
 
   </body>
 
