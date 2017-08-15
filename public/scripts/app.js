@@ -75,26 +75,26 @@ var tweetData =
 $(document).ready(function() {
 
 
-function loadTweets(){        //gets our tweets from the /tweets page.
-    $.ajax({
-       url: '/tweets',
-       method: 'GET',
-       success: renderTweets
-     })
-}
-
-  loadTweets();
-
-
-
-
-function renderTweets(tweets) {
-  for (tweet of tweets) {  // loops through tweets
-    console.log(tweet)
-    var $tweet = createTweetElement(tweet)// calls createTweetElement for each tweet
-    $('#tweets-container').prepend($tweet) // takes return value and appends it to the tweets container
+  function loadTweets(){        //gets our tweets from the /tweets page.
+      $.ajax({
+         url: '/tweets',
+         method: 'GET',
+         success: renderTweets
+       })
   }
-}
+
+    loadTweets();
+
+
+
+
+  function renderTweets(tweets) {
+    for (tweet of tweets) {  // loops through tweets
+      console.log(tweet)
+      var $tweet = createTweetElement(tweet)// calls createTweetElement for each tweet
+      $('#tweets-container').prepend($tweet) // takes return value and appends it to the tweets container
+    }
+  }
 
 
 // $(`<div>${textFromUser}</div>`);
@@ -102,76 +102,77 @@ function renderTweets(tweets) {
 
 
 
-function createTweetElement(tweetData) {
-  var $tweet =
-  `<section id="tweets-container" >
-    <article class="tweets-container">
-      <header class="tweets-header">
-        <img class="avatars" src="${tweetData.user.avatars.small}">
-        <div class = "name"> <h2> ${tweetData.user.name} </h2> </div>
-        <div class = "handle"> <h3> ${tweetData.user.handle} </h3> </div>
-      </header>
+  function createTweetElement(tweetData) {
+    var $tweet =
+    `<section id="tweets-container" >
+      <article class="tweets-container">
+        <header class="tweets-header">
+          <img class="avatars" src="${tweetData.user.avatars.small}">
+          <div class = "name"> <h2> ${tweetData.user.name} </h2> </div>
+          <div class = "handle"> <h3> ${tweetData.user.handle} </h3> </div>
+        </header>
 
-      <div class="body">
-          ${tweetData.content.text}
-      </div>
+        <div class="body">
+            ${tweetData.content.text}
+        </div>
 
-      <footer class="footer">
-        <div class = "time"> <h4> ${tweetData.created_at} </h4> </div>
-        <div class="icons">
-                <i class="fa fa-flag"></i>
-                <i class="fa fa-retweet"></i>
-                <i class="fa fa-heart"></i>
-              </div>
-      </footer>
+        <footer class="footer">
+          <div class = "time"> <h4> ${tweetData.created_at} </h4> </div>
+          <div class="icons">
+                  <i class="fa fa-flag"></i>
+                  <i class="fa fa-retweet"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+        </footer>
 
-    </article>
+      </article>
 
-   </section>`
+     </section>`
 
- return $tweet;
-}
+   return $tweet;
+  }
 
 
 // renderTweets(data)
 
 
-function checkData(data){             //helper function
+  function checkData(data){             //helper function
 
-   console.log("data.length:", data.length);
+     console.log("data.length:", data.length);
 
-   if (data.length > 140) {
-     alert("Your tweet exceeded the 140 character limit");
-     return false;
-   } else if ((data === "")|| (data === null)) {
-       alert ("Please enter text");
-     return false;
-   } else {
-     return true;
-   }
-}
+     if (data.length > 140) {
+       alert("Your tweet exceeded the 140 character limit");
+       return false;
+     } else if ((data === "")|| (data === null)) {
+         alert ("Please enter text");
+       return false;
+     } else {
+       return true;
+     }
+  }
 
 
-$(".form-submit").on("submit", function(event) {
-  event.preventDefault();
-  let data = $(this).find("textarea").val();
-  if (checkData(data)) {
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $(this).serialize(),
-      success: () => {
-        loadTweets();
-        $(this).find("textarea").val()
-      }
-    })
-  };
-})
+  $(".form-submit").on("submit", function(event) {
+    event.preventDefault();
+    let data = $(this).find("textarea").val();
+    if (checkData(data)) {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $(this).serialize(),
+        success: () => {
+          loadTweets();
+          $(this).find("textarea").val()
+        }
+      })
+    };
+  })
 
-$("button").on("click", function() {
-  $(".new-tweet").fadeToggle(750);
-  $("textarea").focus();
-})
+
+  $("button").on("click", function() {
+    $(".new-tweet").fadeToggle(750);
+    $("textarea").focus();
+  })
 
 
 
