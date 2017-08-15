@@ -74,7 +74,6 @@ var tweetData =
 
 $(document).ready(function() {
 
-
   function loadTweets(){        //gets our tweets from the /tweets page.
       $.ajax({
          url: '/tweets',
@@ -117,7 +116,7 @@ $(document).ready(function() {
         </div>
 
         <footer class="footer">
-          <div class = "time"> <h4> ${tweetData.created_at} </h4> </div>
+          <div class = "time"> <h4> ${moment(tweet.created_at).fromNow()} </h4> </div>
           <div class="icons">
                   <i class="fa fa-flag"></i>
                   <i class="fa fa-retweet"></i>
@@ -176,6 +175,19 @@ $(document).ready(function() {
 
 
 
+
+  // hover effect
+  renderTweets(data)
+
+  let tweetIFonts = $(".icons");
+
+  $('.tweets-container').hover(function() {
+    $(this).css('opacity', '1');
+    $(this).find(tweetIFonts).css('display', 'initial');
+  }, function() {
+    $(this).css('opacity', '0.7');
+    $(this).find(tweetIFonts).css('display', 'none');
+  });
 
 
 });
