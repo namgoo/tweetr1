@@ -6,7 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots of Final Product
 
-
+!["Screenshot of "Compose" Button Before Pushing it"](https://github.com/namgoo/tweetr1/blob/master/docs/Nav-Compose_B4.png)
+!["Screenshot of Pressing Compose Button"](https://github.com/namgoo/tweetr1/blob/master/docs/Nav_Pressing_Compose_Button.png)
+!["Screenshot after Composing Tweet Button"](https://github.com/namgoo/tweetr1/blob/master/docs/Nav_After_Compose_Tweet.png)
+!["Screenshot of Composing a tweet"](https://github.com/namgoo/tweetr1/blob/master/docs/Composing-A-Tweet.png)
+!["Screenshot of Character Count Decreasing"](https://github.com/namgoo/tweetr1/blob/master/docs/Character-Counter-Decreasing.png)
 
 
 
